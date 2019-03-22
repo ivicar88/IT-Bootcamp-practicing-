@@ -27,12 +27,18 @@ public class TestiranjeRegForme {
 			driver.findElement(By.xpath(RegUrl.city)).sendKeys(RegUrl.grad);
 			driver.findElement(By.xpath(RegUrl.province)).sendKeys(RegUrl.oblast);
 			driver.findElement(By.xpath(RegUrl.zipcode)).sendKeys(RegUrl.postkod);
-			Select country = new Select(driver.findElement((By.xpath("//select[@name='country']"))));
-	           country.selectByVisibleText("SERBIA");
+			Select country = new Select(driver.findElement((By.xpath(RegUrl.dropdown))));
+	           country.selectByVisibleText(RegUrl.country);
 			driver.findElement(By.xpath(RegUrl.username)).sendKeys(RegUrl.korisIme);
 			driver.findElement(By.xpath(RegUrl.password)).sendKeys(RegUrl.lozinka);
 			driver.findElement(By.xpath(RegUrl.confpassword)).sendKeys(RegUrl.lozinka);
 			driver.findElement(By.xpath(RegUrl.submit)).click();
+			driver.findElement(By.xpath(RegUrl.signoff)).click();
+			driver.findElement(By.xpath(RegUrl.loginu)).sendKeys(RegUrl.korisIme);
+			driver.findElement(By.xpath(RegUrl.loginp)).sendKeys(RegUrl.lozinka);
+			driver.findElement(By.xpath(RegUrl.submitLogIn)).click();
+			Thread.sleep(5000);
+			
 		} catch (Exception ex) {
 			System.out.println(ex.toString());
 			
