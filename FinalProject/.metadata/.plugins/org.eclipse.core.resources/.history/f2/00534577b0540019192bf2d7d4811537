@@ -1,0 +1,31 @@
+package test;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+
+
+public class Testiranje {
+
+	public static void main(String[] args) {
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		
+		try {
+			page.Home.openHomePage(driver);
+			Thread.sleep(400);
+			page.Home.sendDataFirstName(driver, "Ivica");
+			Thread.sleep(2000);
+		} catch (Exception ex) {
+			ex.toString();
+		} finally {
+			driver.quit();
+		}
+		
+		
+	}
+
+}

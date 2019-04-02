@@ -1,0 +1,43 @@
+package page.testing;
+
+import org.openqa.selenium.WebDriver;
+
+import config.ExcelConf;
+import page.Home;
+
+public class Login {
+		
+		// Use to automate log in for single user
+	public static void loginForm(WebDriver driver, int i) throws Exception{
+		String data;
+		// Preparing excel file for use
+		ExcelConf.setEFile(ExcelConf.PATH+ExcelConf.EXCELFILE, ExcelConf.REGSHEET);
+		
+		// Username
+		Home.clickLUsername(driver);
+		data = ExcelConf.getEData(i, 2);
+		Home.sendDataLUsername(driver, data);
+
+		// Password
+		Home.clickLPassword(driver);
+		data = ExcelConf.getEData(i, 4);
+		Home.sendDataLPassword(driver, data);
+		
+		// Login button
+		Home.clickLogin(driver);
+		
+		// Logout button
+		Home.clickLogout(driver);
+	}
+	
+	public static void logWithAllData(WebDriver driver) throws Exception {
+		ExcelConf.setEFile(ExcelConf.PATH+ExcelConf.EXCELFILE,ExcelConf.REGSHEET);
+		for(int i=1;i<ExcelConf.getWorkSheet().getLastRowNum()+1;i++) {
+			loginForm(driver,i);
+			
+		}
+		
+		
+	}
+
+}

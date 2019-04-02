@@ -1,0 +1,13 @@
+package page.testing;
+
+import org.openqa.selenium.WebDriver;
+
+public class Post {
+	
+	// use to make new post
+	public static void makeNewPost(WebDriver driver) throws Exception{
+		
+		
+	}
+
+}

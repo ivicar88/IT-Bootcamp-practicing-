@@ -1,0 +1,37 @@
+package page;
+
+import java.util.Scanner;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import config.ExcelConf;
+
+public class ManualLogin {
+	
+	
+	
+	public static void main(String[] args) {
+		WebDriver driver = new ChromeDriver();
+		String username = "";
+		String password = "";
+		Scanner sc = new Scanner(System.in);
+		
+		// Username
+		System.out.println("Unesite username: ");
+		username = sc.nextLine();
+        Home.clickLUsername(driver);
+		Home.sendDataLUsername(driver, username);
+		
+		// Password
+		System.out.println("Unesite password: ");
+		password = sc.nextLine();
+		Home.clickLPassword(driver);
+		Home.sendDataLPassword(driver, password);
+		
+		// Login button
+		Home.clickLogin(driver);
+		
+	}
+
+}

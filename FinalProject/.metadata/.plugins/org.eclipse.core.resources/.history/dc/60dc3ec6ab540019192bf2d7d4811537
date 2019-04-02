@@ -1,0 +1,25 @@
+package page;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import config.XPaths;
+
+
+public class Home {
+	
+	// XPATHS
+	public static final String FIRSTNAME = "/html/body/div[3]/div[2]/form/input[1]";
+	public static final String LASTNAME = "/html/body/div[3]/div[2]/form/input[2]";
+	public static final String RUSERNAME = "/html/body/div[3]/div[2]/form/input[3]";
+	
+	public static void openHomePage(WebDriver driver) {
+		driver.get(XPaths.URL);
+	}
+	
+	public static WebElement clickFirstName (WebDriver driver) {
+		WebElement wbe = driver.findElement(By.xpath(FIRSTNAME));
+		
+	}
+}
