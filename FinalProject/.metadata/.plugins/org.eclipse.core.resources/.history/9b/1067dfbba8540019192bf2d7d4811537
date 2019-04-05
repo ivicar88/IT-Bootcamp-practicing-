@@ -1,0 +1,10 @@
+package config;
+
+public class ExcelConf {
+	
+	public static final String PATH = "C:\\Users\\win7\\Documents\\FinalProject\\Documents\\";
+	public static final String EXCELFILE = "Data.xls";
+	public static final String REGSHEET = "Registracija";
+	public static final String POSTSHEET = "Tekst";
+
+}

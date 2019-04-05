@@ -1,0 +1,23 @@
+package test;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import page.testing.Manual;
+
+public class FinalTesting {
+
+	public static void main(String[] args) throws Exception {
+
+		WebDriver driver = new ChromeDriver();
+
+		try {
+			//Testing.manualOrAutoLog(driver);
+			Manual.manualRegistration(driver);
+		} catch (Exception ex) {
+			ex.toString();
+		} finally {
+			driver.quit();
+		}
+	}
+}

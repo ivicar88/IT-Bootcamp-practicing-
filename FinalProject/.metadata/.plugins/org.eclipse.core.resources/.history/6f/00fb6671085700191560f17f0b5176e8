@@ -1,0 +1,27 @@
+package page.testing;
+
+import org.openqa.selenium.WebDriver;
+
+public class DeletePost {
+	// Use to delete first two posts
+	public static void deletFirstTwoPosts(WebDriver driver) throws Exception {
+		
+		
+		// Open post or edit menu
+		page.DeleteEditPost.findPostMenuButton(driver);
+		page.DeleteEditPost.clickPostMenuButton(driver);
+		// Click on delete post
+		page.DeleteEditPost.findDeletePostButton(driver);
+		page.DeleteEditPost.clickDeletePostButton(driver);
+		// Open post or edit menu
+		page.DeleteEditPost.findPostMenuButton(driver);
+		page.DeleteEditPost.clickPostMenuButton(driver);
+		// Click on delete post
+		page.DeleteEditPost.findDeletePostButton(driver);
+		page.DeleteEditPost.clickDeletePostButton(driver);
+		
+		// Manual.manualChangePost(driver);
+		driver.quit();
+		
+	}
+}

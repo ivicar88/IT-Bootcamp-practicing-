@@ -1,0 +1,31 @@
+package test;
+
+import org.openqa.selenium.WebDriver;
+import java.util.Scanner;
+
+public class LogTest {
+	
+	public static void manualOrAutoLog(WebDriver driver) throws Exception {
+		Scanner sc = new Scanner(System.in);
+		char a;
+		// Login
+		System.out.println(
+				"Welcome to Login testing. Do you want to start manual or automation testing?" + " Enter 'A' or 'M'");
+		a = sc.nextLine().charAt(0);
+
+		if (a == 'A' || a == 'a') {
+			System.out.println("Automation");
+			page.testing.Login.logWithAllData(driver);
+			//driver.quit();
+		} else if (a == 'M' || a == 'm') {
+			System.out.println("Manual");
+			page.testing.Manual.manualLogin(driver);
+			//driver.quit();
+		} else {
+			System.out.println("Wrong characther, try again");
+
+		}
+		sc.close();
+	}
+
+}

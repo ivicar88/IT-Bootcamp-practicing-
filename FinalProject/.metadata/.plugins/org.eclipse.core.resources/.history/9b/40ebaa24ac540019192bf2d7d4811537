@@ -1,0 +1,33 @@
+package page;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+
+
+
+public class Home {
+	
+	// link for site
+	public static final String URL = "http://localhost:8080/izlet/";
+	
+	// XPATHS
+	public static final String FIRSTNAME = "/html/body/div[3]/div[2]/form/input[1]";
+	public static final String LASTNAME = "/html/body/div[3]/div[2]/form/input[2]";
+	public static final String RUSERNAME = "/html/body/div[3]/div[2]/form/input[3]";
+	
+	// opens Home Page
+	public static void openHomePage(WebDriver driver) {
+		driver.get(XPaths.URL);
+	}
+	
+	
+	// Registration 
+	public static WebElement clickFirstName (WebDriver driver) {
+		WebElement wbe = driver.findElement(By.xpath(FIRSTNAME));
+		return wbe;
+	}
+	
+	
+}

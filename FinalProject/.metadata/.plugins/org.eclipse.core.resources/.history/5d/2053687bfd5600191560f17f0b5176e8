@@ -1,0 +1,35 @@
+package test;
+
+import org.openqa.selenium.WebDriver;
+
+import page.Home;
+
+import java.util.Scanner;
+
+public class RegTest {
+
+	public static void manualOrAutoReg(WebDriver driver) throws Exception {
+		Scanner sc = new Scanner(System.in);
+		char a;
+		
+		System.out.println("Welcome to Registration testing. Do you want to start manual or automation testing?"
+				+ " Enter 'M' or 'A'");
+		a = sc.nextLine().charAt(0);
+
+		if (a == 'A' || a == 'a') {
+			System.out.println("Automation");
+			
+			page.testing.Registration.regInWithAllData(driver);
+		} else if (a == 'M' || a == 'm') {
+			System.out.println("Manual");
+			page.testing.Manual.manualRegistration(driver);
+		} else {
+			System.out.println("Wrong characther, try again");
+		}
+		sc.close();
+		
+		
+	}
+
+
+}

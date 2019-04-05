@@ -1,0 +1,55 @@
+package test;
+
+import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
+
+import config.ExcelConf;
+import page.testing.*;
+
+public class Testing {
+
+	public static void manualOrAutoLog(WebDriver driver) throws Exception {
+		Scanner sc = new Scanner(System.in);
+		char a;
+		String testStatus;
+		System.out
+				.println("Welcome to testing. Do you want to start manual or automation testing?"
+						+ " Enter 'A' or 'M'");
+		a = sc.nextLine().charAt(0);
+
+		if (a == 'A' || a == 'a') {
+			System.out.println("Automation");
+			Registration.regInWithAllData(driver);
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			Thread.sleep(2000);
+/*			System.out.println(driver.getCurrentUrl());
+			if(driver.getCurrentUrl().equals("http://localhost/izlet/izlet/")){
+				testStatus="pass";
+			}
+			else {
+				testStatus="fail";
+			}*/
+			//ExcelConf.setCellData(testStatus, 5, 5);
+			Login.logWithAllData(driver);
+			Post.postWithAllData(driver);
+			DeletePost.deletFirstTwoPosts(driver);
+			driver.close();
+
+		} else if (a == 'M' || a == 'm') {
+			System.out.println("Manual");
+			Manual.manualRegistration(driver);
+			Manual.manualLogin(driver);
+			Manual.manualMakePost(driver);
+			Manual.manualChangePost(driver);
+			driver.quit();
+		} else {
+			System.out.println("Wrong characther, try again");
+			return;
+		}
+
+	}
+
+
+}
